@@ -1,0 +1,78 @@
+<section class='section container'>
+  <h2 class='text-center'>Valores Fundamentales</h2>
+
+  <div class='core__values'>
+    <article class='core__value'>
+      <h3 class='core__value-title'>Integridad</h3>
+      <p class='core__value-description'>Aceptar la responsabilidad y enfrentar las consecuencias de sus acciones.</p>
+    </article>
+
+    <article class='core__value'>
+      <h3 class='core__value-title'>Disciplina</h3>
+      <p class='core__value-description'>
+        La disciplina es esencial en cualquier deporte, forma el carácter del atleta, para mantenerlo enfocado en el
+        alcance de sus objetivos sin distracciones.
+      </p>
+    </article>
+
+    <article class='core__value'>
+      <h3 class='core__value-title'>Trabajo en Equipo</h3>
+      <p class='core__value-description'>
+        Creer en el trabajo en conjunto para completarlo de manera efectiva. Trabajar con la comunidad.
+      </p>
+    </article>
+
+    <article class='core__value'>
+      <h3 class='core__value-title'>Orientacion a Resultados</h3>
+      <p class='core__value-description'>
+        Atención y enfoque solido en el resultado, en lugar de los procesos que las personas ejecutan para lograr los
+        resultados.
+      </p>
+    </article>
+
+    <article class='core__value'>
+      <h3 class='core__value-title'>Positividad</h3>
+      <p class='core__value-description'>
+        Una persona con este valor será notablemente optimista acerca del futuro aun en situaciones difíciles y hará los
+        cambios necesarios para alcanzar los objetivos.
+      </p>
+    </article>
+
+    <article class='core__value'>
+      <h3 class='core__value-title'>Resiliencia</h3>
+      <p class='core__value-description'>La habilidad de recuperarse y reenfocarse luego de fallar.</p>
+    </article>
+  </div>
+</section>
+
+<style>
+  /* ******************** Section - Core values ******************** */
+  .core__values {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 2rem;
+  }
+
+  .core__value {
+    border-radius: 0.375rem;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    padding: 0 1.125rem 1.125rem;
+  }
+
+  .core__value-title {
+    font-size: var(--h5-font-size);
+    color: var(--english-vermillion-color);
+  }
+
+  @media screen and (min-width: 576px) {
+    .core__values {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media screen and (min-width: 992px) {
+    .core__values {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+</style>

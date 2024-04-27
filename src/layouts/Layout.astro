@@ -1,0 +1,176 @@
+---
+import '@fontsource/poppins/400.css';
+import '@fontsource/poppins/500.css';
+import '@fontsource/poppins/600.css';
+import '@fontsource/poppins/700.css';
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang='es-MX'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='description' content='Astro description' />
+    <meta name='viewport' content='width=device-width' />
+    <link rel='icon' type='image/svg+xml' href='./favicon.svg' />
+    <meta name='generator' content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
+
+<style is:global>
+  /* ******************** Custom Properties ******************** */
+  :root {
+    --header-height: 5rem;
+
+    --space-cadet-color: #231e53;
+    --lapis-lazuli-color: #34669a;
+    --english-vermillion-color: #d4474f;
+    --cool-grey-color: #828eb2;
+    --white-color: #fefefe;
+
+    --body-font: 'Poppins', sans-serif;
+
+    --h1-font-size: clamp(2.49rem, calc(2.16rem + 1.64vw), 3.43rem); /* 1rem = 16px */
+    --h2-font-size: clamp(2.07rem, calc(1.84rem + 1.17vw), 2.75rem);
+    --h3-font-size: clamp(1.73rem, calc(1.56rem + 0.82vw), 2.2rem);
+    --h4-font-size: clamp(1.44rem, calc(1.33rem + 0.55vw), 1.76rem);
+    --h5-font-size: clamp(1.2rem, calc(1.13rem + 0.36vw), 1.41rem);
+    --normal-font-size: clamp(1rem, calc(0.96rem + 0.22vw), 1.13rem);
+    --small-font-size: clamp(0.83rem, calc(0.81rem + 0.12vw), 0.9rem);
+    --smaller-font-size: clamp(0.69rem, calc(0.69rem + 0.04vw), 0.72rem);
+
+    --font-regular: 400;
+    --font-medium: 500;
+    --font-semibold: 600;
+    --font-bold: 700;
+
+    --z-fixed: 100;
+    --z-tooltip: 10;
+  }
+
+  /* ******************** Reset CSS ******************** */
+  html {
+    box-sizing: border-box;
+    text-size-adjust: 100%;
+    font-size: 16px;
+    background-color: var(--white-color);
+    color: var(--cool-grey-color);
+    scroll-behavior: smooth;
+  }
+
+  *,
+  *:before,
+  *:after {
+    box-sizing: inherit;
+  }
+
+  body {
+    margin: var(--header-height) 0 0 0;
+    padding: 0;
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+    line-height: 1.6;
+    text-rendering: optimizeLegibility;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  video {
+    max-width: 100%;
+    height: auto;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    color: var(--space-cadet-color);
+    font-weight: var(--font-bold);
+    line-height: 2;
+    margin: 0.5rem 0;
+  }
+
+  h1 {
+    font-size: var(--h1-font-size);
+  }
+
+  h2 {
+    font-size: var(--h2-font-size);
+  }
+
+  h3 {
+    font-size: var(--h3-font-size);
+  }
+
+  h4 {
+    font-size: var(--h4-font-size);
+  }
+
+  h5 {
+    font-size: var(--h5-font-size);
+  }
+
+  p {
+    font-size: var(--normal-font-size);
+    margin: 0;
+  }
+
+  /* ******************** Utilities ******************** */
+  .container {
+    max-width: 1200px;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+  }
+
+  .section {
+    padding: 5rem 0 0;
+  }
+
+  .text-left {
+    text-align: left;
+  }
+
+  .text-center {
+    text-align: center;
+  }
+
+  .text-right {
+    text-align: right;
+  }
+
+  @media screen and (min-width: 992px) {
+    body {
+      margin: 0;
+    }
+  }
+
+  @media screen and (min-width: 1280px) {
+    .container {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+</style>

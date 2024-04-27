@@ -1,0 +1,207 @@
+<header class='header' id='header'>
+  <nav class='nav container'>
+    <a href='/' class='nav__logo'>
+      <img src='./logo-aamco.png' width='80' height='50' alt='Logo AAMCO' />
+    </a>
+
+    <div class='nav__menu' id='nav-menu'>
+      <ul class='nav__list'>
+        <li class='nav__item'>
+          <a href='#' class='nav__link'>Acerca</a>
+        </li>
+        <li class='nav__item'>
+          <a href='#' class='nav__link'>Productos y Servicios</a>
+        </li>
+        <li class='nav__item'>
+          <a href='#' class='nav__link'>Servicios de Negocios</a>
+        </li>
+        <li class='nav__item'>
+          <a href='#' class='nav__link'>Carreras</a>
+        </li>
+        <li class='nav__item'>
+          <a href='#' class='nav__link'>Equipo</a>
+        </li>
+        <li class='nav__item'>
+          <a href='#' class='nav__link'>Tienda</a>
+        </li>
+        <li class='nav__item'>
+          <a href='#' class='nav__link'>Blog</a>
+        </li>
+      </ul>
+
+      <div class='nav__close' id='nav-close'>
+        <svg
+          xmlns='http://www.w3.org/2000/svg'
+          class='icon-tabler-x'
+          width='24'
+          height='24'
+          viewBox='0 0 24 24'
+          stroke-width='2'
+          stroke='currentColor'
+          fill='none'
+          stroke-linecap='round'
+          stroke-linejoin='round'
+        >
+          <path stroke='none' d='M0 0h24v24H0z' fill='none'></path>
+          <path d='M18 6l-12 12'></path>
+          <path d='M6 6l12 12'></path>
+        </svg>
+      </div>
+    </div>
+
+    <div class='nav__toggle' id='nav-toggle'>
+      <svg
+        xmlns='http://www.w3.org/2000/svg'
+        width='24'
+        height='24'
+        viewBox='0 0 24 24'
+        stroke-width='2'
+        stroke='currentColor'
+        fill='none'
+        stroke-linecap='round'
+        stroke-linejoin='round'
+      >
+        <path stroke='none' d='M0 0h24v24H0z' fill='none'></path>
+        <path d='M4 6l16 0'></path>
+        <path d='M4 12l16 0'></path>
+        <path d='M4 18l16 0'></path>
+      </svg>
+    </div>
+  </nav>
+</header>
+
+<style>
+  /* ******************** Header ******************** */
+  .header {
+    position: fixed;
+    width: 100%;
+    background-color: var(--white-color);
+    top: 0;
+    left: 0;
+    z-index: var(--z-fixed);
+    transition: all 0.3s ease;
+  }
+
+  .nav {
+    height: var(--header-height);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .nav__logo,
+  .nav__close,
+  .nav__toggle {
+    display: flex;
+  }
+
+  .nav__logo img {
+    width: 65px;
+    transition: all 0.3s ease;
+  }
+
+  .nav__logo img:hover {
+    transform: scale(1.1);
+  }
+
+  .nav__toggle,
+  .nav__close {
+    cursor: pointer;
+  }
+
+  @media screen and (max-width: 992px) {
+    .nav__menu {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      right: -100%;
+      background-color: var(--white-color);
+      padding: 4rem 0 0 3rem;
+      transition: all 0.3s ease;
+    }
+  }
+
+  .nav__close {
+    position: absolute;
+    top: 1.75rem;
+    right: 1.5rem;
+  }
+
+  .nav__list {
+    display: flex;
+    flex-direction: column;
+    row-gap: 2rem;
+  }
+
+  .nav__link {
+    color: var(--cool-grey-color);
+    font-size: 1rem;
+    font-weight: var(--font-medium);
+    transition: all 0.3s ease;
+  }
+
+  .nav__link:hover {
+    color: var(--lapis-lazuli-color);
+  }
+
+  .show-menu {
+    right: 0;
+  }
+
+  .show-menu + .dropdown {
+    display: none;
+  }
+
+  .scroll-header {
+    box-shadow:
+      rgba(0, 0, 0, 0.1) 0px 20px 25px -5px,
+      rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+  }
+
+  @media screen and (min-width: 992px) {
+    .nav {
+      column-gap: 3rem;
+    }
+
+    .nav__toggle,
+    .nav__close {
+      display: none;
+    }
+
+    .nav__list {
+      flex-direction: row;
+      column-gap: 1.5rem;
+    }
+  }
+</style>
+
+<script>
+  const $header = document.getElementById('header');
+  const $navMenu = document.getElementById('nav-menu');
+  const $navToggle = document.getElementById('nav-toggle');
+  const $navClose = document.getElementById('nav-close');
+  const $navLink = document.querySelectorAll('.nav__link');
+
+  if ($navToggle) {
+    $navToggle.addEventListener('click', () => {
+      $navMenu.classList.add('show-menu');
+    });
+  }
+
+  if ($navClose) {
+    $navClose.addEventListener('click', () => {
+      $navMenu.classList.remove('show-menu');
+    });
+  }
+
+  const linkAction = () => $navMenu.classList.remove('show-menu');
+  $navLink.forEach(link => link.addEventListener('click', linkAction));
+
+  const scrollHeader = () => {
+    if (window.scrollY >= 10) $header.classList.add('scroll-header');
+    else $header.classList.remove('scroll-header');
+  };
+
+  window.addEventListener('scroll', scrollHeader);
+</script>

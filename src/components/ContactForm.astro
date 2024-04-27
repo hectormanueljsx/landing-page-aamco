@@ -1,0 +1,140 @@
+<section class='section container'>
+  <h2 class='text-center'>Contactanos</h2>
+
+  <form class='contact__form'>
+    <div class='contact__inputs'>
+      <div class='contact__inputs-wrapper'>
+        <div class='contact__content'>
+          <label for='firstName' class='contact__label'> Nombre(s) </label>
+          <input type='text' required pattern='^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$' class='contact__input' id='firstName' />
+        </div>
+
+        <div class='contact__content'>
+          <label for='lastName' class='contact__label'>Apellido(s)</label>
+          <input type='text' pattern='^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$' class='contact__input' id='lastName' />
+        </div>
+
+        <div class='contact__content'>
+          <label for='email' class='contact__label'>Correo electrónico</label>
+          <input
+            type='email'
+            required
+            pattern='^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$'
+            class='contact__input'
+            id='email'
+          />
+        </div>
+
+        <div class='contact__content'>
+          <label for='phoneNumber' class='contact__label'>Número de teléfono</label>
+          <input
+            type='tel'
+            required
+            pattern='^[+]{1}(?:[0-9\-\(\)\/\.]\s?){6, 15}[0-9]{1}$'
+            class='contact__input'
+            id='phoneNumber'
+          />
+        </div>
+      </div>
+
+      <div class='contact__content contact__area'>
+        <label for='message' class='contact__label'>Mensaje</label>
+        <textarea name='message' rows='5' required minlength='10' maxlength='255' class='contact__input' id='message'
+        ></textarea>
+      </div>
+
+      <div class='contact__submit'>
+        <button type='submit' class='contact__input-submit'>Enviar</button>
+      </div>
+    </div>
+  </form>
+</section>
+
+<style>
+  /* ******************** Section - Contact us ******************** */
+  .contact__form {
+    padding-bottom: 5rem;
+  }
+
+  .contact__inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .contact__inputs-wrapper {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1rem;
+  }
+
+  .contact__content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .contact__label {
+    font-size: var(--normal-font-size);
+    font-weight: var(--font-medium);
+    color: var(--lapis-lazuli-color);
+  }
+
+  .contact__input {
+    color: var(--cool-grey-color);
+    border: 2px solid var(--lapis-lazuli-color);
+    border-radius: 0.375rem;
+    font-size: var(--normal-font-size);
+    padding: 0.75rem 0.625rem;
+    outline: none;
+  }
+
+  .contact__input:active,
+  .contact__input:focus {
+    border: 2px solid var(--english-vermillion-color);
+  }
+
+  .contact__area textarea {
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+    resize: none;
+  }
+
+  .contact__submit {
+    display: flex;
+    justify-content: center;
+  }
+
+  .contact__input-submit {
+    background-color: var(--lapis-lazuli-color);
+    border: none;
+    color: var(--white-color);
+    cursor: pointer;
+    border-radius: 0.375rem;
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+    font-weight: var(--font-medium);
+    outline: none;
+    padding: 0.625rem 0.5rem;
+    width: 100%;
+    max-width: 12.5rem;
+    transition: all 0.3s ease;
+  }
+
+  .contact__input-submit:hover {
+    background-color: var(--english-vermillion-color);
+    transform: translateY(-0.25rem);
+  }
+
+  @media screen and (min-width: 576px) {
+    .contact__form {
+      max-width: 767px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .contact__inputs-wrapper {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>
